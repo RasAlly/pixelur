@@ -1,4 +1,4 @@
-import * as util from "../util/session_api_util";
+import * as PostApiUtil from "../util/session_api_util";
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -8,7 +8,7 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 // actions creators
 const receiveCurrentUser = (user) =>({
   type: RECEIVE_CURRENT_USER,
-  user,
+  user
 });
 
 const logoutCurrentUser = () => ({
@@ -17,23 +17,23 @@ const logoutCurrentUser = () => ({
 
 const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
-  errors,
+  errors
 });
 
 // thunk action creators
 
 export const login = user => dispatch => {
-  return util.loginUser(user)
+  return PostApiUtil.loginUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
 }
 
 export const logout = () => dispatch => {
-  return util.logoutUser()
+  return PostApiUtil.logoutUser()
     .then(() => dispatch(logoutCurrentUser()))
 }
 
 export const signup = user => dispatch => {
-  return util.signupNewUser(user)
+  return PostApiUtil.signupNewUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
 }
 

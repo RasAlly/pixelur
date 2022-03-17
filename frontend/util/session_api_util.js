@@ -1,22 +1,22 @@
 export const signupNewUser = (user) => {
   return $.ajax({
-    method: "POST",
-    url: "/api/users",
+    url: '/api/users',
+    method: 'POST',
     data: { user }
   });
 };
 
 export const loginUser = (user) => {
   return $.ajax({
-    method: "POST",
-    url: "/api/session",
-    data: { user },
+    url: '/api/session',
+    method: 'POST',
+    data: { user }
   });
 };
 
 export const logoutUser = () => {
-    return $.ajax({
-    method: "DELETE",
-    url: "/api/session",
+  return $.ajax({
+    url: '/api/session',
+    method: 'DELETE'
   });
 };
