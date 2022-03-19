@@ -27,25 +27,29 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className='session-form'>
-        <h2>Sign Up</h2>
-        <form>
+      <div className='session-bckg'>
 
-          <label>Username:
-            <input type="text" value={this.state.username} onChange={this.handleInput('username')}/>
-          </label>
+        <div className='session-container'>
+          <h2 className='signin-up-logo'>Pixelur</h2>
+          <form className='signin-form'>
 
-          <label>Email:
-            <input type="text" value={this.state.email} onChange={this.handleInput('email')}/>
-          </label>
+           
+              <input className='signin-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
+           
+            <br />
+         
+              <input className='signin-input' placeholder='Email' type="text" value={this.state.email} onChange={this.handleInput('email')}/>
+     
+            <br />
+     
+              <input className='signin-input' placeholder='Password' type="password" value={this.state.password} onChange={this.handleInput('password')}/>
 
-          <label>Password:
-            <input type="password" value={this.state.password} onChange={this.handleInput('password')}/>
-          </label>
-
-          <button onClick={this.handleSubmit}>Sign Up</button>
-          
-        </form>
+            <br />
+            
+          </form>
+              <button className='next-button' onClick={this.handleSubmit}>Next</button>
+        </div>
+        
       </div>
     )
   }
