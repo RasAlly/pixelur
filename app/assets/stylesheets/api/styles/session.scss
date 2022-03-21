@@ -44,6 +44,19 @@
         width: 100%;
         border-radius: 5px;
       }
+
+      .demo-user-btn {
+        position: relative;
+        display: block;
+        background: transparent;
+        color: #0099CC; 
+        border: 2px solid #008CBA; 
+      }
+
+      .demo-user-btn:hover {
+        background-color: #008CBA; 
+        color: white;
+      }
     }
 
     .session-link {
@@ -63,6 +76,7 @@
       font-size: 14px;
       color: #F2F2F2;
       margin-top: 10px;
+      cursor: pointer;
     }
   }
 }
