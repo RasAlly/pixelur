@@ -11,7 +11,7 @@
     z-index: 2;
     box-sizing: border-box;
   
-    .signin-up-logo {
+    .session-logo {
       position: relative;
       display: block;
       margin: 0 auto 90px;
@@ -20,9 +20,10 @@
       color: white;
       font-family: "Comic Sans MS", "Comic Sans", monospace;
       font-weight: 700;
+      text-decoration: none;
     }
 
-    .signin-form {
+    .session-form {
       padding: 15px;
       background: #2C2F34;
       border-radius: 5px;
@@ -45,6 +46,14 @@
       }
     }
 
+    .session-link {
+      line-height: 3.3em;
+      float: right;
+      margin-right: 10px;
+      color: #f2f2f2;
+      text-decoration: none;
+    }
+
     .submit-button {
       float: right;
       padding: 10px 25px;
@@ -53,6 +62,7 @@
       border-radius: 2px;
       font-size: 14px;
       color: #F2F2F2;
+      margin-top: 10px;
     }
   }
 }

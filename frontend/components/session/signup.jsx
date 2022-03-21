@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -30,8 +31,8 @@ class Signup extends React.Component {
       <div className='session-bckg'>
 
         <div className='session-container'>
-          <h2 className='signin-up-logo'>Pixelur</h2>
-          <form className='signin-form'>
+          <Link to='/' className='session-logo'>Pixelur</Link>
+          <form className='session-form'>
 
            
               <input className='session-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
@@ -47,7 +48,8 @@ class Signup extends React.Component {
             <br />
             
           </form>
-              <button className='submit-button' onClick={this.handleSubmit}>Next</button>
+            <button className='submit-button' onClick={this.handleSubmit}>Next</button>
+            <Link to="/login" className='session-link'>sign in</Link>
         </div>
         
       </div>

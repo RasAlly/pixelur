@@ -1,0 +1,35 @@
+.nav-bar-container {
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-bar-header {
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 2em;
+    color: rgb(251, 32, 32);
+    font-family: "Comic Sans MS", "Comic Sans", monospace;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .nav-bar-right {
+    display: flex;
+    margin: 10px;
+
+    .nav-bar-signup {
+      float: right;
+      text-decoration: none;
+      padding: 8px 19px;
+      background-color: #1bb76e;
+      border-radius: 3px;
+      color: #fefefe;
+    }
+
+    .nav-bar-login {
+      float: right;
+      text-decoration: none;
+      padding: 7px 14px 10px 9px;
+    }
+  }
+}

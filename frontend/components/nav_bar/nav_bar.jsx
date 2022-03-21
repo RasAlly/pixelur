@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar =  ({ currentUser, logout }) => {
-const display = currentUser ? (
-    <div>
-      <h3>Welcome {currentUser.username}!</h3>
-      <button onClick={logout}>Logout</button>
-    </div>
-  ) : (
-    <div>
-      <Link className="btn" to="/signup">Sign Up</Link>
-      <Link className="btn" to="/login">Log In</Link>
-    </div>
-  );
+  const display = currentUser ? (
+      <div className='nav-bar-right'>
+        <button onClick={logout}>Logout</button>
+      </div>
+    ) : (
+      <div className='nav-bar-right'>
+        <Link className="nav-bar-login" to="/login">Sign In</Link>
+        <Link className="nav-bar-signup" to="/signup">Sign Up</Link>
+      </div>
+    );
   return (
     <header className="nav-bar">
-      <h1 className="logo">PIXELUR</h1>
-      <div>
+      
+      <div className='nav-bar-container'>
+        <Link to='/' className='nav-bar-header'>Pixelur</Link>
         {display}
       </div>
     </header>
