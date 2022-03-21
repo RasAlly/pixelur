@@ -27,7 +27,7 @@
       background: #2C2F34;
       border-radius: 5px;
 
-      .signin-input {
+      .session-input {
         font-family: inherit;
         border: 1px solid transparent;
         // box-shadow: inset 0 1px 1px rgb(0 0 0 / 10%);
@@ -45,13 +45,14 @@
       }
     }
 
-    .next-button {
+    .submit-button {
       float: right;
       padding: 10px 25px;
       background: #5c69ff;
       border: none;
       border-radius: 2px;
       font-size: 14px;
+      color: #F2F2F2;
     }
   }
 }

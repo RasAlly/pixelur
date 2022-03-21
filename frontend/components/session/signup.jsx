@@ -34,20 +34,20 @@ class Signup extends React.Component {
           <form className='signin-form'>
 
            
-              <input className='signin-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
+              <input className='session-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
            
             <br />
          
-              <input className='signin-input' placeholder='Email' type="text" value={this.state.email} onChange={this.handleInput('email')}/>
+              <input className='session-input' placeholder='Email' type="text" value={this.state.email} onChange={this.handleInput('email')}/>
      
             <br />
      
-              <input className='signin-input' placeholder='Password' type="password" value={this.state.password} onChange={this.handleInput('password')}/>
+              <input className='session-input' placeholder='Password' type="password" value={this.state.password} onChange={this.handleInput('password')}/>
 
             <br />
             
           </form>
-              <button className='next-button' onClick={this.handleSubmit}>Next</button>
+              <button className='submit-button' onClick={this.handleSubmit}>Next</button>
         </div>
         
       </div>

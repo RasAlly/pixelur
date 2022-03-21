@@ -26,26 +26,21 @@ class Login extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="session-form">
-        <h2>Log In!</h2>
-        <form>
-          <label>Username:
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleInput('username')}
-          />
-          </label>
+      <div className='session-bckg'>
 
-          <label>Password:
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleInput('password')}
-          />
-            <button onClick={this.handleSubmit}>Log In!</button>
-          </label>
-        </form>
+        <div className="session-container">
+          <h2 className='signin-up-logo'>Pixelur</h2>
+          <form className='signin-form'>
+
+            <input className='session-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
+            
+            <br />
+
+            <input className='session-input' placeholder='Password' type="password" value={this.state.password} onChange={this.handleInput('password')}/>
+
+          </form>
+              <button className='submit-button' onClick={this.handleSubmit}>Sign In!</button>
+        </div>
       </div>
     );
   }
