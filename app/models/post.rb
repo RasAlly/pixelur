@@ -5,6 +5,7 @@ class Post < ApplicationRecord
     class_name: :User
 
   has_one_attached :photo
+  
     #hasn't been made yet
   # has_many :comments,
   #   foreign_key: :post_id,

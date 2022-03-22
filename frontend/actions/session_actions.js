@@ -1,4 +1,4 @@
-import * as PostApiUtil from "../util/session_api_util";
+import * as SessionApiUtil from "../util/session_api_util";
 import { receiveErrors } from "./error_actions";
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
@@ -18,7 +18,7 @@ const logoutCurrentUser = () => ({
 // thunk action creators
 
 export const login = user => dispatch => {
-  return PostApiUtil.loginUser(user)
+  return SessionApiUtil.loginUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .catch(error => {
      dispatch(receiveErrors(error));
@@ -27,13 +27,13 @@ export const login = user => dispatch => {
 }
 
 export const logout = () => dispatch => {
-  return PostApiUtil.logoutUser()
+  return SessionApiUtil.logoutUser()
     .then(() => dispatch(logoutCurrentUser()))
     .catch(error => dispatch(receiveErrors(error)))
 }
 
 export const signup = user => dispatch => {
-  return PostApiUtil.signupNewUser(user)
+  return SessionApiUtil.signupNewUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .catch(error => {
       dispatch(receiveErrors(error));
