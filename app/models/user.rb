@@ -7,16 +7,15 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-########## associations : tables have not been made yet
-  # has_many :posts,
-  #   foreign_key: :creator_id,
-  #   class_name: :Post
+  has_many :posts,
+    foreign_key: :creator_id,
+    class_name: :Post
 
+    # have not been made yet
   # has_many :comments,
   #   foreign_key: :commenter_id,
   #   class_name: :Comment
 
-##########
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

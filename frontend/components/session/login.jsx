@@ -6,7 +6,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      isErrors: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,12 +23,14 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => this.props.history.push('/'));
+      .then(() => this.props.history.push('/'))
+      .catch(() => this.setState({isErrors: true})); // need these because app doesn't stay on /login page if fails to login user i.e. wrong username / password
   }
-
+    
   handleDemo(e) {
     e.preventDefault();
-    this.setState({username: 'demoUser', password: 'demoUser'})
+    this.setState({username: 'demoUser', password: 'demoUser', isErrors: false})
+    this.props.clearErrors();
   }
 
   render() {
@@ -38,6 +41,10 @@ class Login extends React.Component {
         <div className="session-container">
           <Link to='/' className='session-logo'>Pixelur</Link>
           <form className='session-form'>
+
+            {
+              this.state.isErrors ? <div className='session-errors'>{this.props.errors[0]}</div> : <></>
+            }
 
             <input className='session-input' placeholder='Username' type="text" value={this.state.username} onChange={this.handleInput('username')}/>
             

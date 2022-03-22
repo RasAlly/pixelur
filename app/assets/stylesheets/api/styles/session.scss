@@ -28,6 +28,15 @@
       background: #2C2F34;
       border-radius: 5px;
 
+      .session-errors {
+        padding: 10px;
+        background: #121211;
+        text-align: center;
+        margin-bottom: 9px;
+        border-radius: 3px;
+        color: #dc4d4d;
+      }
+
       .session-input {
         font-family: inherit;
         border: 1px solid transparent;
