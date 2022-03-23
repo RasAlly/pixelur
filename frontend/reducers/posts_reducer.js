@@ -1,12 +1,11 @@
 import { RECEIVE_ALL_POSTS, RECEIVE_POST } from "../actions/post_actions";
 
-const postsReducer = (state = {}, action) => {
-  Object.freeze(state);
-  // const nextState = Object.assign({}, state);
+const postsReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      return action.posts;
+      state.push(action.posts);
+      return state;
 
     case RECEIVE_POST:
       return action.post;

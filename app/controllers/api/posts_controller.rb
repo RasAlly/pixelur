@@ -2,7 +2,15 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in, only: [:create, :update]
 
   def index 
-    @posts = Post.all 
+    # @posts = Post.all 
+    # @posts = []
+    start_from = params[:limit].to_i * params[:index].to_i
+    
+    posts = Post.select("posts.*").offset(start_from.to_s).limit(params[:limit])
+    @posts = posts.to_a
+
+    # debugger
+
     render "/api/posts/index"
   end
   
@@ -13,6 +21,7 @@ class Api::PostsController < ApplicationController
       render "/api/posts/show"
     else
       render json: @post.errors.full_messages, status: 404
+    end
   end
 
   def create 

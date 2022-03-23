@@ -13,8 +13,8 @@ const receivePost = (post) => ({
   post
 })
 
-export const fetchAllPosts = () => (dispatch) => {
-  return PostApiUtil.fetchAllPosts()
+export const fetchAllPosts = (index, limit) => (dispatch) => {
+  return PostApiUtil.fetchAllPosts(index, limit)
     .then(posts => dispatch(receiveAllPosts(posts)))
 }
 

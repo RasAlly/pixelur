@@ -1,8 +1,7 @@
-
-export const fetchAllPosts = () => {
+export const fetchAllPosts = (index, limit) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/posts'
+    url: `/api/posts?index=${index}&limit=${limit}`
   })
 }
 
