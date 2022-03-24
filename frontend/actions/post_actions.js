@@ -32,3 +32,8 @@ export const createPost = (post) => (dispatch) => {
   return PostApiUtil.createPost(post)
     .then(post => dispatch(receivePost(post)))
 }
+
+export const updatePost = (post) => (dispatch) => {
+  return PostApiUtil.updatePost(post)
+    .then(post => dispatch(receivePost(post)))
+}

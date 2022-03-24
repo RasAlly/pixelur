@@ -8,6 +8,7 @@
 
 User.destroy_all
 Post.destroy_all
+# ActiveRecord::Base.connection.reset_pk_sequence!('users', 'posts') #this resets the id
 
 demoUser = User.create!(username: 'demoUser', email: 'demoUser@gmail.com', password: 'demoUser')
 user1 = User.create!(username: 'coolGuy77', email: 'coolguy@gmail.com', password: 'coolguy87')

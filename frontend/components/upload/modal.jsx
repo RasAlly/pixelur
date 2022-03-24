@@ -1,5 +1,5 @@
 import React from "react";
-import{ Link }from "react-router-dom";
+import{ Link, withRouter }from "react-router-dom";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -7,39 +7,28 @@ class Modal extends React.Component {
 
     this.state = {
       title: 'test title',
-      photoFile: null,
-      post: null
+      photoFile: null
     }
     this.handleFile = this.handleFile.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleCreatePost = this.handleCreatePost.bind(this)
   }
 
   handleFile(e) {
-     this.setState({photoFile: e.currentTarget.files[0]}, this.handleSubmit(e))
-    // this.setState({photoFile: e.currentTarget.files[0]}, this.handleSubmit)
+    //  this.setState({photoFile: e.currentTarget.files[0]}, this.handleSubmit(e))
+    // console.log(e.currentTarget.files[0])
+     this.setState({photoFile: e.currentTarget.files[0]}, () => {
+        let formData = new FormData();
+        formData.append('post[photo]', this.state.photoFile)
+        formData.append('post[title]', this.state.title)
+
+        this.props.createPost(formData)
+          .then(() => {
+            const id = Object.keys(this.props.post)[0]
+            console.log(id);
+            this.props.history.push(`/post/${id}/edit`);
+          })
+     })
   }
 
-  handleCreatePost() {
-    this.props.createPost(this.state.post)
-  }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log(this.state)
-    let formData = new FormData();
-    formData.append('post[photo]', this.state.photoFile)
-    formData.append('post[title]', this.state.title)
-    console.log(formData);
-    // let post = Object.assign({})
-    // post['photo'] = this.state.photoFile
-    // post['title'] = this.state.title
-    this.props.createPost(formData)
-    // console.log(post);
-    // this.setState({post: post}, this.handleCreatePost)
-    // debugger
-      // .catch()
-  }
   render() {
     return (
       <>
@@ -82,4 +71,4 @@ class Modal extends React.Component {
   
 }
 
-export default Modal;
+export default withRouter(Modal);

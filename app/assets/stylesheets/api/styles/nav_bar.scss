@@ -17,14 +17,24 @@
 
   .upload-btn {
     background-color: #1CB76E;
+    height: 32px;
+    width: 7.3%;
     text-decoration: none;
+    margin-right: 77%;
+    margin-top: 0.8%;
+    border-radius: 3px;
 
     .upload_plus_symbol {
+      margin-top: 7px;
+      margin-left: 5px;
 
     }
 
     .upload-text {
-      color: rgb(255,255,255);
+      color: white;
+      position: absolute;
+      line-height: 17px;
+      margin: 9px;
 
     }
   }

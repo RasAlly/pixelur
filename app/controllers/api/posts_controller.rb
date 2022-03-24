@@ -28,9 +28,9 @@ class Api::PostsController < ApplicationController
   def create 
     # debugger
     @post = Post.new(post_params)
-    
+    @post.creator_id = current_user.id
+    # debugger
     if @post.save
-      @post.creator_id = current_user.id
       render "api/posts/show"
     else
       render json: @post.errors.full_messages, status: 401
@@ -53,6 +53,6 @@ class Api::PostsController < ApplicationController
 
   def post_params
     # debugger
-    params.require(:post).permit(:title, :photo)
+    params.require(:post).permit(:title, :description, :photo)
   end
 end

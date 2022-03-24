@@ -1,7 +1,15 @@
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import errorsReducer from './session_errors_reducer';
 import sessionReducer from './session_reducer';
 import postsReducer from './posts_reducer';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['posts', 'session'] 
+}
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -9,4 +17,6 @@ const rootReducer = combineReducers({
   posts: postsReducer
 });
 
-export default rootReducer;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export default persistedReducer;
