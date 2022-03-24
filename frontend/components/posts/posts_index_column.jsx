@@ -5,7 +5,7 @@ class PostIndexColumn extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {limit: 1, currentPosts: []}
+    this.state = {limit: 2, currentPosts: []}
   }
 
   componentDidMount() {

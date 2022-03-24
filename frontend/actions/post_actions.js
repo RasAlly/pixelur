@@ -8,10 +8,13 @@ const receiveAllPosts = (posts) => ({
   posts
 })
 
-const receivePost = (post) => ({
-  type: RECEIVE_POST,
-  post
-})
+const receivePost = (post) => {
+  // debugger
+  return {
+    type: RECEIVE_POST,
+    post
+  }
+}
 
 export const fetchAllPosts = (index, limit) => (dispatch) => {
   return PostApiUtil.fetchAllPosts(index, limit)
@@ -20,5 +23,12 @@ export const fetchAllPosts = (index, limit) => (dispatch) => {
 
 export const fetchPost = (postId) => (dispatch) => {
   return PostApiUtil.fetchPost(postId)
+    .then(post => dispatch(receivePost(post)))
+}
+
+export const createPost = (post) => (dispatch) => {
+  // console.log(post);
+  // debugger
+  return PostApiUtil.createPost(post)
     .then(post => dispatch(receivePost(post)))
 }

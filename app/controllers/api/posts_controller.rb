@@ -1,9 +1,10 @@
 class Api::PostsController < ApplicationController
-  before_action :require_logged_in, only: [:create, :update]
+  # before_action :require_logged_in, only: [:create, :update]
 
   def index 
     # @posts = Post.all 
     # @posts = []
+    # debugger
     start_from = params[:limit].to_i * params[:index].to_i
     
     posts = Post.select("posts.*").offset(start_from.to_s).limit(params[:limit])
@@ -25,6 +26,7 @@ class Api::PostsController < ApplicationController
   end
 
   def create 
+    # debugger
     @post = Post.new(post_params)
     
     if @post.save
@@ -50,6 +52,7 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:posts).permit(:title)
+    # debugger
+    params.require(:post).permit(:title, :photo)
   end
 end

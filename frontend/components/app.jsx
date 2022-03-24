@@ -1,9 +1,10 @@
 import React from 'react';
 import SignUpContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
-import { AuthRoute } from '../util/route_utils';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './home_page';
+import Upload from './upload/upload';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Switch>
         <AuthRoute path="/signup" component={SignUpContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <Route path="/" component={HomePage}/>
+        <ProtectedRoute path="/upload" component={Upload}/> 
+        <Route path="/" component={HomePage}/> 
       </Switch>
     </>
   ) 

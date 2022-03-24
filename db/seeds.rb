@@ -25,5 +25,17 @@ post3.photo.attach(io: File.open("/Users/RasBoss/desktop/ww3_meme.jpg"), filenam
 post4 = Post.create!(title: "wish I couldn't relate", creator_id: user1.id)
 post4.photo.attach(io: File.open("/Users/RasBoss/desktop/covid_meme.jpg"), filename: "covid_meme.jpg")
 
+post5 = Post.create!(title: "wanna sprite!", creator_id: user2.id)
+post5.photo.attach(io: File.open("/Users/RasBoss/desktop/lebron_meme.jpg"), filename: "lebron_meme.jpg")
+
+post6 = Post.create!(title: "happy national puppers day", creator_id: demoUser.id)
+post6.photo.attach(io: File.open("/Users/RasBoss/desktop/doggo_pic.jpg"), filename: "doggo_pic.jpg")
+
+post7 = Post.create!(title: "how do you feel about daylight savings?", creator_id: user1.id)
+post7.photo.attach(io: File.open("/Users/RasBoss/desktop/daylight_saving_meme.jpeg"), filename: "daylight_saving_meme.jpeg")
+
+post8 = Post.create!(title: "Lauterbrunnen, Switzerland", creator_id: user2.id)
+post8.photo.attach(io: File.open("/Users/RasBoss/desktop/switzerland_pic.png"), filename: "switzerland_pic.png")
+
 
 

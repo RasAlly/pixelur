@@ -5,10 +5,10 @@ import PostsIndex from "./posts/posts_index";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <NavBarContainer />
       <PostsIndex />
-    </div>
+    </>
   )
 }
 

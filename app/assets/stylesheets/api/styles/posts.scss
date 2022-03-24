@@ -1,9 +1,8 @@
 .posts-index {
   display: flex;
-  // width: 10%;
-  margin-left: 5%;
-  margin-right: 5%;
-  // flex-direction: column;
+  margin-left: 7%;
+  margin-right: 7%;
+
 
   .posts-column {
     display: flex;
@@ -15,7 +14,8 @@
 
     .posts-index-item {
       cursor: pointer;
-      
+      margin-bottom: 5%;
+
       .posts-index-img {
         width: 100%;
         border-top-left-radius: 4px;
