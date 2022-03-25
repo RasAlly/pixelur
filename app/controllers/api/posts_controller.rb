@@ -39,7 +39,7 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
+    # debugger
     if @post
       if @post.update(post_params)
         render "api/posts/show" 

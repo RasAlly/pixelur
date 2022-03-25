@@ -4,8 +4,8 @@ import { fetchPost, updatePost } from "../../actions/post_actions";
 import PostEdit from "./post_edit";
 
 const mSTP = (state, ownProps) => {
-  console.log(ownProps);
   return { 
+    state: state,
     post: state.posts[ownProps.match.params.id]
   }
 }
