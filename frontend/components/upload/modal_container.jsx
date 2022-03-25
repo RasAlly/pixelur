@@ -3,7 +3,7 @@ import { createPost } from "../../actions/post_actions";
 import Modal from "./modal";
 
 const mSTP = (state, ownProps) => {
-  console.log(state);
+  // console.log(state);
   return {
     post: state.posts,
     title: '',

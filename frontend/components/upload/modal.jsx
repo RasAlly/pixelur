@@ -6,7 +6,7 @@ class Modal extends React.Component {
     super(props)
 
     this.state = {
-      title: 'test title',
+      title: '',
       photoFile: null
     }
     this.handleFile = this.handleFile.bind(this)
@@ -22,8 +22,9 @@ class Modal extends React.Component {
 
         this.props.createPost(formData)
           .then(() => {
-            const id = Object.keys(this.props.post)[0]
-            console.log(id);
+            // console.log(this.props.post);
+            const id = Object.keys(this.props.post).slice(-1)[0]
+            // console.log(id);
             this.props.history.push(`/post/${id}/edit`);
           })
      })

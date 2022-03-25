@@ -5,9 +5,9 @@
   .edit-post-cont {
     display: flex;
     flex-direction: column;
-    margin-left: 30%;
-    margin-top: 16%;
-    max-width: 40%;
+    margin-left: 19%;
+    margin-top: 6%;
+    max-width: 48%;
 
     .title-div {
       width: 128%;
@@ -79,6 +79,9 @@
   }
 
   .edit-submit {
-
+    position: relative;
+    float: right;
+    margin-right: 18%;
+    bottom: 74%;
   }
 }

@@ -4,26 +4,45 @@ class PostEdit extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {post: null}
+    this.state = {
+      creator_id: null,
+      id: null,
+      description: null,
+      photoUrl: null,
+      title: null
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPost(this.props.match.params.id)
-      .then(({post}) => this.setState({post}))
+      .then(({post}) => {
+        this.setState({
+          creator_id: post.creator_id,
+          id: post.id,
+          description: post.description,
+          title: post.title,
+          photoUrl: post.photoUrl
+        })
+      }) 
   }
 
   handleInput(e, handle) {
-    console.log(e);  
-    () => {
-      this.setState({post: {[handle]: e.target.value }})
-    }
+    console.log(this.state);
+    this.setState({[handle]: e.target.value})
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.updatePost(this.state.post)
+    const {title, description, id, creator_id} = this.state;
+    this.props.updatePost({
+      title: title,
+      description: description,
+      id: id, 
+      creator_id: creator_id
+    })
       .then(() => {
         console.log('updated');
       })
@@ -33,15 +52,14 @@ class PostEdit extends React.Component {
   render() {
     const {post} = this.props
 
-    if (!post || !this.state.post) {
+    if (!post || !this.state.id) {
       return null
     }
 
-    const {title, description, photoUrl } = this.state.post;
+    const {title, description, photoUrl } = this.state;
 
     return(
       <div>
-        {post && (
           <div className="edit-post">
             
             <div className='edit-post-cont'>
@@ -67,16 +85,15 @@ class PostEdit extends React.Component {
 
                 <div className="description-div">
 
-                  <div className="edit-description" contenteditable="true" placeholder="Add a description"  onInput={(e) => this.handleInput(e, 'description')} >{description ? description : ''}</div>
+                  <input className="edit-description" placeholder="Add a description" onInput={(e) => this.handleInput(e, 'description')} defaultValue={description ? description : ''} />
 
                 </div>
 
               </div>
 
             </div>
-              <button className="edit-submit" onClick={this.handleSubmit}>Post To Community</button>
+            <button className="edit-submit" onClick={this.handleSubmit}>Post To Community</button>
           </div>
-        )}
       </div>
     )
   }
