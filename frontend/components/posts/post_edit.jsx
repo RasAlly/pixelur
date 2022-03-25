@@ -46,9 +46,32 @@ class PostEdit extends React.Component {
             
             <div className='edit-post-cont'>
 
-              <input className="edit-title" type="text" placeholder='add a title' defaultValue={title ? title : ''} onChange={(e) => this.handleInput(e, 'title')} />
-              <img className="edit-img" src={photoUrl} alt="edit-img" />
-              <textarea className="edit-description" defaultValue={description ? description : ''} onChange={(e) => this.handleInput(e, 'description')} />
+              <div className="title-div">
+
+                <input className="edit-title" type="text" placeholder='Give your post a title...' defaultValue={title ? title : ''} onChange={(e) => this.handleInput(e, 'title')} />
+
+              </div>
+
+
+              <div className="img-content">
+
+                <div className="img-div">
+
+                  <div className="img-wrapper">
+
+                    <img className="edit-img" src={photoUrl} alt="edit-img" />
+
+                  </div>
+                  
+                </div>
+
+                <div className="description-div">
+
+                  <div className="edit-description" contenteditable="true" placeholder="Add a description"  onInput={(e) => this.handleInput(e, 'description')} >{description ? description : ''}</div>
+
+                </div>
+
+              </div>
 
             </div>
               <button className="edit-submit" onClick={this.handleSubmit}>Post To Community</button>
