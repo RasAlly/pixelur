@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class PostEdit extends React.Component {
   constructor(props) {
@@ -14,9 +15,11 @@ class PostEdit extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleDeletePost = this.handleDeletePost.bind(this);
   }
 
   componentDidMount() {
+    // console.log(this.props.post);
     this.props.fetchPost(this.props.match.params.id)
       .then(({post}) => {
         this.setState({
@@ -30,7 +33,6 @@ class PostEdit extends React.Component {
   }
 
   handleInput(e, handle) {
-    console.log(this.state);
     this.setState({[handle]: e.target.value})
   }
 
@@ -43,20 +45,26 @@ class PostEdit extends React.Component {
       id: id, 
       creator_id: creator_id
     })
-      .then(() => {
-        console.log('updated');
-      })
+    .then(() => {
+      this.props.history.push(`/post/${id}`)
+    })
     
   }
 
-  render() {
-    const {post} = this.props
+  handleDeletePost() {
+    this.props.deletePost(this.state.id)
+    this.props.history.push('/')
+  }
 
-    if (!post || !this.state.id) {
+  render() {
+    // console.log(this.props.post);
+    // const {post} = this.props
+
+    if (!this.state.id) {
       return null
     }
 
-    const {title, description, photoUrl } = this.state;
+    const {title, description, photoUrl} = this.state;
 
     return(
       <div>
@@ -92,11 +100,17 @@ class PostEdit extends React.Component {
               </div>
 
             </div>
-            <button className="edit-submit" onClick={this.handleSubmit}>Post To Community</button>
+
+            <div className='edit-actions'>
+              <button className="edit-submit" onClick={this.handleSubmit}>Post To Community</button>
+              <div onClick={this.handleDeletePost} className="delete-post">
+                <span>delete post</span>
+              </div>
+            </div>
           </div>
       </div>
     )
   }
 }
 
-export default PostEdit;
+export default withRouter(PostEdit);

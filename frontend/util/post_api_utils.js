@@ -1,7 +1,7 @@
-export const fetchAllPosts = (index, limit) => {
+export const fetchAllPosts = () => {
   return $.ajax({
     method: 'GET',
-    url: `/api/posts?index=${index}&limit=${limit}`
+    url: '/api/posts'
   })
 }
 
@@ -24,10 +24,16 @@ export const createPost = (post) => {
 }
 
 export const updatePost = (post) => {
-  console.log(post);
   return $.ajax({
     method: 'PATCH',
     url: `/api/posts/${post.id}`,
     data: {post}
+  })
+}
+
+export const deletePost = (postId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/posts/${postId}`
   })
 }

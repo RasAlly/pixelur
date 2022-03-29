@@ -5,11 +5,8 @@ class Api::PostsController < ApplicationController
     # @posts = Post.all 
     # @posts = []
     # debugger
-    start_from = params[:limit].to_i * params[:index].to_i
     
-    posts = Post.select("posts.*").offset(start_from.to_s).limit(params[:limit])
-    @posts = posts.to_a
-
+    @posts = Post.all
     # debugger
 
     render "/api/posts/index"
@@ -46,6 +43,17 @@ class Api::PostsController < ApplicationController
       else
         render json: @post.errors.full_messages, status: 401
       end 
+    else
+      render json: ['Could not locate post'], status: 400
+    end
+  end
+
+  def destroy 
+    @post = Post.find(params[:id])
+
+    if @post 
+      @post.destroy
+      render "/api/posts/index"
     else
       render json: ['Could not locate post'], status: 400
     end

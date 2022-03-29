@@ -2,46 +2,133 @@
   z-index: 1;
   padding: 9px;
   display: flex;
+  height: 35%;
+  width: inherit;
   justify-content: space-between;
+  margin: 0;
   background: url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.e52b5cdf24f83bcd55f9f1318855f2ef.png);
+  background-size: 100%; 
+  overflow: hidden;
 
-  .nav-bar-header {
-    justify-content: center;
+  .link-wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
-    font-size: 2em;
-    color: rgb(251, 32, 32);
-    font-family: "Comic Sans MS", "Comic Sans", monospace;
-    font-weight: 700;
-    text-decoration: none;
-  }
+    overflow: hidden;
 
-  .upload-btn {
-    background-color: #1CB76E;
-    height: 32px;
-    width: 7.3%;
-    text-decoration: none;
-    margin-right: 77%;
-    margin-top: 0.8%;
-    border-radius: 3px;
-
-    .upload_plus_symbol {
-      margin-top: 7px;
-      margin-left: 5px;
-
+    .nav-bar-header {
+      justify-content: center;
+      font-size: 1.7em;
+      color: rgb(251, 32, 32);
+      font-family: "Comic Sans MS", "Comic Sans", monospace;
+      font-weight: 700;
+      text-decoration: none;
+      height: fit-content;
+      width: fit-content;
     }
 
-    .upload-text {
-      color: white;
-      position: absolute;
-      line-height: 17px;
-      margin: 9px;
+    .upload-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1CB76E;
+      height: 33px;
+      width: 94px;
+      text-decoration: none;
+      margin-left: 15px;
+      border-radius: 3px;
+      padding: 0 7px;
 
+      .upload_plus_symbol {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+
+      .upload-text {
+        color: white;
+        margin: 0;
+        font-size: 14px;
+      }
     }
   }
 
-  .nav-bar-right {
+  .profile-tab-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: fit-content;
+    width: fit-content;
+    overflow: hidden;
+
+    #profile-img {
+      height: 40px;
+      width: 40px;
+      background-color: #34CFA8;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      #profile-letter {
+        color: white;
+        font-size: 22px;
+        top: 2.3%;
+        right: 1.5%;
+      }
+    }
+
+    .actions-cont {
+      display: flex;
+      flex-direction: column;
+      background-color: #53565d;
+      margin-top: 19%;
+      height: fit-content;
+      width: 135px;
+      border-radius: 5px;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+      #pointer-svg {
+        margin-left: 70%;
+        margin-top: -8px;
+        color: #53565d;
+      }
+
+      .posts-tab {
+        color: rgb(240, 238, 238);
+        text-decoration: none;
+        margin: 12px;
+        position: relative;
+      }
+
+      .github-tab {
+        color: rgb(240, 238, 238);
+        text-decoration: none;
+        margin: 12px;
+        position: relative;
+      }
+      
+      .logout-tab {
+        background-color: transparent;
+        border: none;
+        color: #f0eeee;
+        margin: 12px;
+        position: relative;
+        cursor: pointer;
+      }
+    }
+  }
+    
+  .session-buttons-cont {
     display: flex;
     margin: 10px;
+
 
     .nav-bar-signup {
       float: right;
@@ -50,6 +137,7 @@
       background-color: #1bb76e;
       border-radius: 3px;
       color: #fefefe;
+      height: 14%;
     }
 
     .nav-bar-login {

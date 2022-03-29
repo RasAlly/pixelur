@@ -2,12 +2,11 @@ import { connect } from "react-redux";
 import { createPost } from "../../actions/post_actions";
 import Modal from "./modal";
 
-const mSTP = (state, ownProps) => {
-  // console.log(state);
+const mSTP = (state) => {
   return {
-    post: state.posts,
+    post: state.posts.currentPost,
     title: '',
-    description: '' //make description column in table
+    description: '' 
   }
 }
 

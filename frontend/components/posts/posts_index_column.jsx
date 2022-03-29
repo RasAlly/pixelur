@@ -1,30 +1,21 @@
 import React from "react";
-import PostIndexItem from "./post_index_item";
+import PostIndexItemContainer from "./post_index_item_container";
 
-class PostIndexColumn extends React.Component {
+class PostsIndexColumn extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {limit: 2, currentPosts: []}
-  }
-
-  componentDidMount() {
-    const {index, fetchAllPosts} = this.props
-
-    fetchAllPosts(index, this.state.limit)
-      .then(({posts}) => {
-        this.setState({currentPosts: posts})
-      })
   }
 
   render() {
-    const {currentPosts} = this.state;
-
+    const {postsColumn} = this.props;
+    if (!postsColumn) return null;
+    console.log('postsColumn', this.props);
+    
     return (
       <div className="posts-column">
         {
-          currentPosts.length > 0 && currentPosts.map(post => {
-            return <PostIndexItem key={post.id} post={post} />
+          postsColumn.map((post) => {
+            return <PostIndexItemContainer key={post.id} post={post} />
           })
         }
       </div>
@@ -32,4 +23,4 @@ class PostIndexColumn extends React.Component {
   }
 }
 
-export default PostIndexColumn
+export default PostsIndexColumn

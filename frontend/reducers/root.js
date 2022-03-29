@@ -8,7 +8,7 @@ import postsReducer from './posts_reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['posts', 'session'] 
+  whitelist: ['posts', 'session', 'allPosts', 'currentPost'] 
 }
 
 const rootReducer = combineReducers({

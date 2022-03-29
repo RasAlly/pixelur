@@ -14,7 +14,6 @@ class Modal extends React.Component {
 
   handleFile(e) {
     //  this.setState({photoFile: e.currentTarget.files[0]}, this.handleSubmit(e))
-    // console.log(e.currentTarget.files[0])
      this.setState({photoFile: e.currentTarget.files[0]}, () => {
         let formData = new FormData();
         formData.append('post[photo]', this.state.photoFile)
@@ -22,9 +21,7 @@ class Modal extends React.Component {
 
         this.props.createPost(formData)
           .then(() => {
-            // console.log(this.props.post);
-            const id = Object.keys(this.props.post).slice(-1)[0]
-            // console.log(id);
+            const id = this.props.post.id
             this.props.history.push(`/post/${id}/edit`);
           })
      })
