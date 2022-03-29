@@ -128,16 +128,14 @@
   .session-buttons-cont {
     display: flex;
     margin: 10px;
-
+    height: fit-content;
 
     .nav-bar-signup {
-      float: right;
       text-decoration: none;
       padding: 8px 19px;
       background-color: #1bb76e;
       border-radius: 3px;
       color: #fefefe;
-      height: 14%;
     }
 
     .nav-bar-login {

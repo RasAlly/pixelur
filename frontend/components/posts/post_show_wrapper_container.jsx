@@ -7,8 +7,8 @@ const mSTP = (state, ownProps) => {
   console.log(state);
   return {
     currentUserId: state.session.currentUser.id,
-    state: state,
-    ownProps: ownProps
+    state: state
+    // ownProps: ownProps
   }
 }
 

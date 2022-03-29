@@ -11,7 +11,7 @@ class PostShowWrapper extends React.Component {
     return (
       <div className='show-cont'>
         <NavBarContainer />
-        <PostShow store={this.props.state} ownProps={this.props.ownProps} fetchPost={this.props.fetchPost} currentUserId={this.props.currentUserId}/>
+        <PostShow store={this.props.state} match={this.props.match} fetchPost={this.props.fetchPost} currentUserId={this.props.currentUserId}/>
       </div>
     )
   }

@@ -12,7 +12,7 @@ class PostShow extends React.Component {
     navBar.style.background = 'linear-gradient(180deg,rgba(37,38,41,.24) 26.22%,#27292d),linear-gradient(0deg,#171544,#171544)';
 
     console.log(this.props);
-    this.props.fetchPost(this.props.store.posts.currentPost.id)
+    this.props.fetchPost(this.props.match.params.id)
   }
 
   render() {
