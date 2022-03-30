@@ -19,7 +19,6 @@ class PostEdit extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.post);
     this.props.fetchPost(this.props.match.params.id)
       .then(({post}) => {
         this.setState({
@@ -57,9 +56,6 @@ class PostEdit extends React.Component {
   }
 
   render() {
-    // console.log(this.props.post);
-    // const {post} = this.props
-
     if (!this.state.id) {
       return null
     }

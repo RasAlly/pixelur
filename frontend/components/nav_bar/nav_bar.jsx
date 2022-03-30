@@ -5,7 +5,6 @@ const NavBar =  ({ currentUser, logout }) => {
   const [showActions, setShowActions] = useState(false)
 
   const profileClicked = () => {
-    console.log(showActions);
     setShowActions((prev) => !prev)
   }
 

@@ -9,7 +9,6 @@ class PostsIndexColumn extends React.Component {
   render() {
     const {postsColumn} = this.props;
     if (!postsColumn) return null;
-    console.log('postsColumn', this.props);
     
     return (
       <div className="posts-column">

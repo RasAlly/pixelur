@@ -1,20 +1,20 @@
-import React from "react";
-import NavBarContainer from "../nav_bar/nav_bar_container";
-import PostShow from "./post_show";
+// import React from "react";
+// import NavBarContainer from "../nav_bar/nav_bar_container";
+// import PostShowContainer from "./post_show_container";
 
-class PostShowWrapper extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+// class PostShowWrapper extends React.Component {
+//   constructor(props) {
+//     super(props)
+//   }
 
-  render() {
-    return (
-      <div className='show-cont'>
-        <NavBarContainer />
-        <PostShow store={this.props.state} match={this.props.match} fetchPost={this.props.fetchPost} currentUserId={this.props.currentUserId}/>
-      </div>
-    )
-  }
-}
+//   render() {
+//     return (
+//       <div className='show-cont'>
+//         <NavBarContainer />
+//         <PostShowContainer />
+//       </div>
+//     )
+//   }
+// }
 
-export default PostShowWrapper;
+// export default PostShowWrapper;

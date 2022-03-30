@@ -4,7 +4,6 @@ import { fetchPost, updatePost, deletePost } from "../../actions/post_actions";
 import PostEdit from "./post_edit";
 
 const mSTP = (state, ownProps) => {
-  console.log(state);
   return { 
     state: state,
     post: state.posts.currentPost
