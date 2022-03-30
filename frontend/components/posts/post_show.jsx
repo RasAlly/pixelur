@@ -56,7 +56,6 @@ class PostShow extends React.Component {
               <div className="edit-post-symbol">
                 <Link to={`/post/${id}/edit`}>
                   <img id="edit-img" src="/pixelur_images/edit_post_symbol.png" alt="image" />
-                  <span id="edit-symbol-text">edit</span> 
                 </Link>
               </div>
               :

@@ -15,9 +15,10 @@
     
     .title-next-cont {
       display: flex;
-      margin-left: 29.5%;
       margin-bottom: 2%;
+      width: 100%;
       align-items: center;
+      justify-content: space-between;
       
       .post-title {
         color: white;
@@ -47,11 +48,16 @@
     }
 
     .user-edit-cont {
+      display: flex;
+      margin-bottom: 2%;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
 
       .user-info-cont {
 
         #post-username {
-
+          color: #1bb76e;
         }
       }
 
@@ -63,6 +69,7 @@
         
         #edit-img {
           height: 20px;
+          background: #cacacaed;
         }
         
         #edit-symbol-text {
