@@ -7,9 +7,13 @@ class PostsIndex extends React.Component {
     super(props)
 
     this.state = {
+      posts: null,
       newPostsArr: null,
       numColumns: 4
     }
+
+    this.changeNumColumns = this.changeNumColumns.bind(this);
+    // this.createPostsColumns = this.createPostsColumns.bind(this);
   }
 
   componentDidMount() {
@@ -20,12 +24,27 @@ class PostsIndex extends React.Component {
     })
 
     // on window width or height change update array length
+    window.addEventListener('resize', (e) => {
+      const width = e.target.innerWidth;
+      this.changeNumColumns(width);
+    })
   }
 
-  // shouldComponentUpdate() {
-  //   if (!this.state.newPostsArr) return true;
-  //   return false;
-  // }
+
+  changeNumColumns(width) {
+    if (width < 700) {
+      this.createPostsColumns(this.state.posts, 2)
+      return
+      // this.setState({numColumns: 3})
+    } if (width < 900) {
+      this.createPostsColumns(this.state.posts, 3)
+      return
+      // this.setState({numColumns: 3})
+    } if (width < 1200) {
+      this.createPostsColumns(this.state.posts, 4)
+      return
+    }
+  }
 
   createPostsColumns(posts, numColumns) {
     const newPostsArr = [];
@@ -36,7 +55,8 @@ class PostsIndex extends React.Component {
       const column = posts.slice(i, i + columnLengths);
       newPostsArr.push(column);
     }
-    this.setState({numColumns: numColumns, newPostsArr: newPostsArr})
+
+    this.setState({numColumns: numColumns, newPostsArr: newPostsArr, posts: posts})
   }
 
   render() {

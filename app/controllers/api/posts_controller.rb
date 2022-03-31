@@ -9,14 +9,14 @@ class Api::PostsController < ApplicationController
     @posts = Post.all
     # debugger
 
-    render "/api/posts/index"
+    render "/layouts/api/posts/index"
   end
   
   def show
     @post = Post.find(params[:id])
 
     if @post  
-      render "/api/posts/show"
+      render "/layouts/api/posts/show"
     else
       render json: @post.errors.full_messages, status: 404
     end
@@ -28,7 +28,7 @@ class Api::PostsController < ApplicationController
     @post.creator_id = current_user.id
     # debugger
     if @post.save
-      render "api/posts/show"
+      render "/layouts/api/posts/show"
     else
       render json: @post.errors.full_messages, status: 401
     end
@@ -39,7 +39,7 @@ class Api::PostsController < ApplicationController
     # debugger
     if @post
       if @post.update(post_params)
-        render "api/posts/show" 
+        render "/layouts/api/posts/show" 
       else
         render json: @post.errors.full_messages, status: 401
       end 
@@ -53,7 +53,7 @@ class Api::PostsController < ApplicationController
 
     if @post 
       @post.destroy
-      render "/api/posts/index"
+      render "/layouts/api/posts/index"
     else
       render json: ['Could not locate post'], status: 400
     end

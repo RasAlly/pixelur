@@ -145,4 +145,10 @@
       padding: 7px 14px 10px 9px;
     }
   }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 }

@@ -21,6 +21,13 @@ class PostShow extends React.Component {
       // })
   }
 
+  componentWillUnmount() {
+    const navBar = document.getElementsByClassName('nav-bar-container')[0];
+    if (navBar) {
+      navBar.style.background = 'url(https://s.imgur.com/desktop-assets/desktop-assets/homebg.e52b5cdf24f83bcd55f9f1318855f2ef.png)';
+    }
+  }
+
   componentDidUpdate() {
     if (this.props.currentPost.id != this.props.match.params.id) {
       this.props.fetchPost(this.props.match.params.id)
@@ -48,7 +55,10 @@ class PostShow extends React.Component {
 
           <div className="user-edit-cont">
             <div className='user-info-cont'>
-              <span id="post-username">{creator.username}</span>
+              <Link id="post-username" to={`/user/${creator_id}`}>
+                {creator.username}
+              </Link>
+              {/* <span id="post-username">{creator.username}</span> */}
             </div>       
 
             { this.props.currentUserId === creator_id ?

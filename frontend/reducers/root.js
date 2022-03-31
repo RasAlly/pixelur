@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import errorsReducer from './session_errors_reducer';
 import sessionReducer from './session_reducer';
 import postsReducer from './posts_reducer';
+import usersReducer  from './users_reducer';
 
 const persistConfig = {
   key: 'root',
@@ -14,7 +15,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   session: sessionReducer,
   errors: errorsReducer,
-  posts: postsReducer
+  posts: postsReducer,
+  user: usersReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
