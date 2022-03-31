@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class UserPostsItem extends React.Component {
   constructor(props) {
@@ -20,10 +21,12 @@ class UserPostsItem extends React.Component {
     const {post} = this.state
     if (!post) return null;
     return (
-      <div className="post-item-cont">
-        <img id="show-img" src={post.photoUrl} />
-        <span>{post.title}</span>
-      </div>
+      // <div className="post-item-cont">
+        <Link to={`/post/${post.id}`} className="post-item-cont">
+          <img className="show-img" src={post.photoUrl} />
+          <span className="show-title">{post.title}</span>
+        </Link>
+      // {/* </div> */}
     )
   }
 }

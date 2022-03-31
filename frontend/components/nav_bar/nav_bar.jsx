@@ -18,7 +18,7 @@ const NavBar =  ({ currentUser, logout }) => {
         <div className='actions-cont'>
           <svg width="24" height="8" viewBox="0 0 24 8" id="pointer-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>icon</title><path d="M10.3359 1.1094C11.3436 0.437601 12.6564 0.437601 13.6641 1.1094L24 8L3.05823e-09 8L10.3359 1.1094Z"></path></svg>
 
-          <Link className='posts-tab' to='/'>Posts</Link> {/* change link to users show page */}
+          <Link className='posts-tab' to={`/user/${currentUser.id}`}>Posts</Link> {/* change link to users show page */}
 
           <a className='github-tab' href="">My Github</a>
 
