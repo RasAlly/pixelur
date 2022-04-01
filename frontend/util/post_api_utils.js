@@ -19,7 +19,6 @@ export const createPost = (post) => {
     data: post,
     contentType: false,
     processData: false
-    // dataType: 'json'
   })
 }
 

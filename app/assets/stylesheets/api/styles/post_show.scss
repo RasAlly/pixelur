@@ -22,6 +22,7 @@
       
       .post-title {
         color: white;
+        font-size: 44px;
       }  
       
       .next-post-link {
@@ -31,13 +32,15 @@
           display: flex;
           cursor: pointer;
           justify-content: center;
+          justify-content: space-around;
           align-items: center;
           background: #4A58FB;
           border: none;
           color: #e4e3e3;
           border-radius: 2px;
-          width: 70px;
-          height: 26px;
+          width: 79px;
+          height: 33px;
+          font-size: 16px;
 
           #arrow-svg {
     
@@ -57,6 +60,7 @@
       .user-info-cont {
 
         #post-username {
+          text-decoration: none;
           color: #1bb76e;
         }
       }

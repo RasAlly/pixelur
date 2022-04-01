@@ -1,13 +1,7 @@
 class Api::PostsController < ApplicationController
-  # before_action :require_logged_in, only: [:create, :update]
 
   def index 
-    # @posts = Post.all 
-    # @posts = []
-    # debugger
-    
     @posts = Post.all
-    # debugger
 
     render "/layouts/api/posts/index"
   end
@@ -23,10 +17,9 @@ class Api::PostsController < ApplicationController
   end
 
   def create 
-    # debugger
     @post = Post.new(post_params)
     @post.creator_id = current_user.id
-    # debugger
+
     if @post.save
       render "/layouts/api/posts/show"
     else
@@ -36,7 +29,7 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    # debugger
+
     if @post
       if @post.update(post_params)
         render "/layouts/api/posts/show" 
@@ -60,7 +53,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    # debugger
     params.require(:post).permit(:title, :description, :photo)
   end
 end

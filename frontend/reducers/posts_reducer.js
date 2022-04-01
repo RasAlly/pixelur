@@ -11,7 +11,6 @@ const postsReducer = (state = _initialState, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      // debugger
       nextState.allPosts = action.posts;
       return nextState;
                   

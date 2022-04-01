@@ -7,13 +7,18 @@ class PostsIndex extends React.Component {
     super(props)
 
     this.state = {
-      posts: null,
       newPostsArr: null,
+      allColumns: null,
       numColumns: 4
     }
 
     this.changeNumColumns = this.changeNumColumns.bind(this);
-    // this.createPostsColumns = this.createPostsColumns.bind(this);
+    this.updatePostsColumns = this.updatePostsColumns.bind(this);
+  }
+
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.changeNumColumns)
   }
 
   componentDidMount() {
@@ -25,38 +30,41 @@ class PostsIndex extends React.Component {
 
     // on window width or height change update array length
     window.addEventListener('resize', (e) => {
-      const width = e.target.innerWidth;
-      this.changeNumColumns(width);
+       this.changeNumColumns(e.target.innerWidth);
     })
   }
 
-
   changeNumColumns(width) {
+    let newNumColumns = 5;
+
     if (width < 700) {
-      this.createPostsColumns(this.state.posts, 2)
-      return
-      // this.setState({numColumns: 3})
-    } if (width < 900) {
-      this.createPostsColumns(this.state.posts, 3)
-      return
-      // this.setState({numColumns: 3})
-    } if (width < 1200) {
-      this.createPostsColumns(this.state.posts, 4)
-      return
-    }
+      newNumColumns = 2;
+    } else if (width < 900) {
+      newNumColumns = 3;
+    } else if (width < 1600) {
+      newNumColumns = 4;
+    };
+
+    this.updatePostsColumns(newNumColumns)
+  }
+
+  updatePostsColumns(newNumColumns) {
+    this.setState({
+      newPostsArr: [...this.state.allColumns].slice(0, newNumColumns), 
+      numColumns: newNumColumns
+    });
   }
 
   createPostsColumns(posts, numColumns) {
     const newPostsArr = [];
     if (numColumns < 1) return null;
-    const columnLengths = Math.floor(posts.length / numColumns); // converts number of floors to length of each column
-
+    const columnLengths = Math.round(posts.length / numColumns); // converts number of floors to length of each column
     for (let i = 0; i < posts.length; i += columnLengths) {
       const column = posts.slice(i, i + columnLengths);
       newPostsArr.push(column);
     }
 
-    this.setState({numColumns: numColumns, newPostsArr: newPostsArr, posts: posts})
+    this.setState({numColumns: numColumns, newPostsArr: newPostsArr, allColumns: newPostsArr})
   }
 
   render() {

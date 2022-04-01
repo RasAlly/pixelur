@@ -14,6 +14,21 @@ class Login extends React.Component {
     this.handleDemo = this.handleDemo.bind(this)
   }
 
+  componentDidMount() {
+    const navBar = document.getElementsByClassName('nav-bar-container')[0]
+    if (navBar) {
+      if (!this.props.currentUser) {
+        // const navBar = document.getElementsByClassName('nav-bar-container')[0]
+        navBar.style.display = 'none'
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    const navBar = document.getElementsByClassName('nav-bar-container')[0]
+    navBar.style.display = null;
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
@@ -34,6 +49,14 @@ class Login extends React.Component {
   }
 
   render() {
+    const navBar = document.getElementsByClassName('nav-bar-container')[0]
+    if (navBar) {
+      if (!this.props.currentUser) {
+        // const navBar = document.getElementsByClassName('nav-bar-container')[0]
+        navBar.style.display = 'none'
+      }
+    }
+    
     return (
       <div className='session-bckg'>
 

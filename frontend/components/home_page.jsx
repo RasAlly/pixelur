@@ -1,5 +1,4 @@
 import React from "react";
-import NavBarContainer from "./nav_bar/nav_bar_container";
 import PostsIndexContainer from "./posts/posts_index_container";
 
 class HomePage extends React.Component {
@@ -10,7 +9,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        {/* <NavBarContainer /> */}
         <PostsIndexContainer />
       </>
     )

@@ -10,7 +10,7 @@
     width: 100%;
 
     .upload-drop {
-      background: radial-gradient(755px at 77.71% -37.81%, #441b6f 0, rgba(23,23,66,0) 100%);
+      background: radial-gradient(755px at 77.71% -37.81%, #441b6f 0, #17174200 100%);
       background-color: #ffca41;
       width: 48%;
       height: 44%;
@@ -27,7 +27,7 @@
         height: 73px;
         margin-top: -6%;
         align-items: center;
-        border: 3px dashed rgba(255, 255, 255, 0.4);
+        border: 3px dashed #ffffff66;
         border-radius: 6px;
         mix-blend-mode: overlay;
 
@@ -129,7 +129,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.399);
+  background-color: #00000066;
   z-index: 2;
 }
 

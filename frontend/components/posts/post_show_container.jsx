@@ -4,11 +4,9 @@ import { fetchPost } from "../../actions/post_actions";
 import PostShow from './post_show';
 
 const mSTP = (state, ownProps) => {
-  console.log(ownProps);
   return {
-    currentUserId: state.session.currentUser.id,
+    currentUserId: state.session.currentUser,
     currentPost: state.posts.currentPost
-    // ownProps: ownProps
   }
 }
 

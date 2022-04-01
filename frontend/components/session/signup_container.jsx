@@ -5,7 +5,8 @@ import Signup from "./signup";
 
 
 const mapStateToProps = state => ({
-  errors: state.errors
+  errors: state.errors,
+  currentUser: state.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({

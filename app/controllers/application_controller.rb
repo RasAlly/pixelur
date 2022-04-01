@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   
   def require_logged_in
     if !logged_in?
-      debugger
       redirect_to api_posts_url
     end
   end

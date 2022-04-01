@@ -20,7 +20,7 @@ const NavBar =  ({ currentUser, logout }) => {
 
           <Link className='posts-tab' to={`/user/${currentUser.id}`}>Posts</Link> {/* change link to users show page */}
 
-          <a className='github-tab' href="">My Github</a>
+          <a className='github-tab' href="https://github.com/RasAlly/pixelur" target="_blank">My Github</a>
 
           <button className='logout-tab' onClick={logout}>Logout</button>
         </div>

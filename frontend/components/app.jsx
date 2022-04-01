@@ -6,7 +6,6 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './home_page';
 import Upload from './upload/upload';
 import PostEditContainer from './posts/post_edit_container';
-import PostShowWrapper from './posts/post_show_wrapper'
 import PostShowContainer from './posts/post_show_container';
 import NavBarContainer from "./nav_bar/nav_bar_container";
 import UserShowContainer from './user/user_show_container';
@@ -29,3 +28,4 @@ const App = () => {
 };
 
 export default App
+
