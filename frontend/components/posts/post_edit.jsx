@@ -24,7 +24,7 @@ class PostEdit extends React.Component {
 
     if (createPostButton && navBar) {
       createPostButton.style.display = 'none';
-      navBar.style.background = 'linear-gradient(rgb(24 28 40) 21%, rgb(47 48 53) 77%), linear-gradient(162deg, rgba(92, 0, 253, 0.71), rgba(51, 255, 169, 0.68))';
+      navBar.style.background = 'linear-gradient(rgb(24 28 40) 21%, rgb(47 48 53) 77%), linear-gradient(162deg, #5c00fdb5, #33ffa9ad)';
     }
     
     this.props.fetchPost(this.props.match.params.id)
