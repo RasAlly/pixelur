@@ -6,7 +6,12 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props)
 
-    this.handleTabChange = this.handleTabChange.bind(this)
+    this.state = {
+      test: false
+    }
+
+    this.handleTabChange = this.handleTabChange.bind(this);
+    this.isCurrentUser = this.isCurrentUser.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +58,28 @@ class UserShow extends React.Component {
     tabEle.style.color = 'green';
   } 
 
+  isCurrentUser() {
+    console.log(this.props.user);
+    console.log(this.props.currentUser);
+    if (this.props.user.id === this.props.currentUser.id) {
+      return (
+        <div className="show-actions-cont">
+          <span onClick={() => this.handleTabChange('all')} className="user-action-tabs" id="all">ALL</span>
+          <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
+          <span className="user-action-tabs" id="hidden">HIDDEN</span>
+        </div>
+      )
+    } else {
+      return (
+        <div className="show-actions-cont">
+          {/* <span onClick={() => this.handleTabChange('all')} className="user-action-tabs" id="all">ALL</span> */}
+          <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
+          {/* <span className="user-action-tabs" id="hidden">HIDDEN</span> */}
+        </div>
+      )
+    }
+  }
+
   render() {
     if (!this.props.user || !this.props.user.posts) return null;
     return (
@@ -64,15 +91,34 @@ class UserShow extends React.Component {
           </div>
         </div>
 
+        {
+          (this.props.user.id === this.props.currentUser.id ?
+            // (this.state.test ? 
+
+              <div className="user-show-tabs-cont">
+      
+                <div className="show-actions-cont">
+                  <span onClick={() => this.handleTabChange('all')} className="user-action-tabs" id="all">ALL</span>
+                  <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
+                  <span className="user-action-tabs" id="hidden">HIDDEN</span>
+                </div>
+      
+              </div>
+
+           : 
+            <div className="user-show-tabs-cont">
+              <div className="show-actions-cont">
+                <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
+              </div>
+            </div>
+         )
+        }
+
+
+{/* 
         <div className="user-show-tabs-cont">
-
-          <div className="show-actions-cont">
-            <span onClick={() => this.handleTabChange('all')} className="user-action-tabs" id="all">ALL</span>
-            <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
-            <span className="user-action-tabs" id="hidden">HIDDEN</span>
-          </div>
-
-        </div>
+          <span onClick={() => this.handleTabChange('public')} className="user-action-tabs" id="public">PUBLIC</span>
+        </div> */}
 
         <div className="posts-bckg-cont">
             <div className="user-posts-cont">

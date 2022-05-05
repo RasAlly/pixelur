@@ -6,7 +6,8 @@ import { fetchPost } from "../../actions/post_actions";
 
 const mSTP = (state, ownProps) => {
   return {
-    user: state.user
+    user: state.user,
+    currentUser: state.session.currentUser
   }
 }
 

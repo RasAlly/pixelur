@@ -4,10 +4,19 @@ import { Link } from 'react-router-dom';
 const NavBar =  ({ currentUser, logout }) => {
   const [showActions, setShowActions] = useState(false)
 
+  useEffect(() => {
+    document.addEventListener( "click", (e) => {
+      toggleShowActions(e)
+    })
+  }, [])
+
   const profileClicked = () => {
     setShowActions((prev) => !prev)
   }
 
+  const toggleShowActions = (e) => {
+    document.a
+  }
 
   const display = currentUser ? (
     <div className='profile-tab-cont'>
